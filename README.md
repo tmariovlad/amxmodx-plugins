@@ -1,1 +1,1 @@
-# gather-start
+# amxmodx plugins
