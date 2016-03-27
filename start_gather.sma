@@ -78,10 +78,7 @@ public check()
 	
 	// afla ziua curenta
 	get_time("%w", CurrentDay, charsmax(CurrentDay));
-	
-	server_print("CurrentDay = %s", CurrentDay);
-	server_print("ora = %d", ora);
-	
+		
 	// daca nu este ziua gatherului opreste pluginul de verificare
 	if(!(equali(CurrentDay, "5"))) {
 		if(is_gather_plugin_active() == 1) {
@@ -94,17 +91,12 @@ public check()
 	
 	if(plugin_on && ora < GATHER_HOUR_START) {
 		if(is_gather_plugin_active() == 1) {
-			server_print("0-deactivate too early");
 			pause("c",GATHER_PLUGIN_NAME);
 			plugin_on = false;
 		}
 	}
-
 	
-	server_print("is_gather_plugin_active() = %d", is_gather_plugin_active());
-	server_print("1-checking");
 	if(ora >= GATHER_HOUR_END) {
-		server_print("4-deactivate");
 		if(is_gather_plugin_active() == 1) {
 			server_print("[ Gather LLG >> AMXX ] Fiind trecut de ora %d:00 , Oprim Gather-ul LLG ! [ >> GATHER INACTIV << ]", GATHER_HOUR_END);
 			pause("dc",GATHER_PLUGIN_NAME);
@@ -113,9 +105,7 @@ public check()
 		}
 	}
 	else if(ora >= GATHER_HOUR_START)
-	{
-		server_print("2-is in schedule");
-		
+	{		
 		if(is_gather_plugin_active() == 0) {
 			if (unpause("ac",GATHER_PLUGIN_NAME))
 			{
@@ -129,9 +119,6 @@ public check()
 				set_fail_state(error_msg);
 			}
 			
-		}
-		else {
-			server_print("3-already active");
 		}
 	}
 }
