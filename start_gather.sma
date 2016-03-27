@@ -4,7 +4,7 @@
 #define ID_TASK 1235215
 
 #define PLUGIN "Start Gather"
-#define VERSION "1.3"
+#define VERSION "1.4"
 #define AUTHOR "Vlad & Adryyy"
 
 /* 
